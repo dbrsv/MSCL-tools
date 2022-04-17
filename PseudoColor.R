@@ -40,26 +40,26 @@ col_conv <- function(Lab){
 #функция создания изображения и сохранения его в файл ||
 # GENERATES AND SAVES JPEG IMAGE
 image_write <- function(depth, colors, filename){
-  f <- filename %>% 
+  fname <- filename %>% 
           stri_replace_all_regex(
                   pattern = ".csv",
                   replacement = "",
                   vectorize=F) %>%
           paste("_(", min(depth),"-", max(depth), ").jpg", sep = "", collapse = "")
-  
-  jpeg(f,
-       width = 200,
+  print(fname)
+  jpeg(fname,
+       width = 100,
        height = 1000,
        units = "px",
        pointsize = 12,
        bg = "white",
        quality = 75
        )
-  
+  par(mai = c(0, 0, 0, 0))
   image(0:10, depth, 
          matrix(rep(depth, each = 10), 
                 nrow = 10), 
-         col = cols, 
+         col = colors, 
          xaxt = "n",
          yaxt = "n",
          xlab = "",
@@ -74,6 +74,7 @@ if (interactive() && .Platform$OS.type == "windows")
                      multi = T)
 
 # Цикл для обработки данных из выбранных файлов || DATA PROCESSING -------
+
 for(f in fn){
   dLab <- read_log_files(f)
   cols <- col_conv(dLab[,2:4])
