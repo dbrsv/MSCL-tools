@@ -12,13 +12,13 @@
 ## Email: borisov.ocean@gmail.com
 ## 
 
-# Подключение библиотек || LIBRARIES-----------------------------
+# РџРѕРґРєР»СЋС‡РµРЅРёРµ Р±РёР±Р»РёРѕС‚РµРє || LIBRARIES-----------------------------
 library(stringi)
 library(magrittr)
 library(readr)
 
-# Объявление функций || FUNCTIONS-----------------------------
-# функция чтения даннных из *.csv файла  (глубина, L*, a*, b*) ||
+# РћР±СЉСЏРІР»РµРЅРёРµ С„СѓРЅРєС†РёР№ || FUNCTIONS-----------------------------
+# С„СѓРЅРєС†РёСЏ С‡С‚РµРЅРёСЏ РґР°РЅРЅРЅС‹С… РёР· *.csv С„Р°Р№Р»Р°  (РіР»СѓР±РёРЅР°, L*, a*, b*) ||
 # READS DATA FROM *.CSV FILE
 read_log_files <- function(dat){
   dat <- read_csv(fn, 
@@ -43,7 +43,7 @@ read_log_files <- function(dat){
   dLab
 }
 
-# функция конвертации цвета L*a*b* в RGB ||
+# С„СѓРЅРєС†РёСЏ РєРѕРЅРІРµСЂС‚Р°С†РёРё С†РІРµС‚Р° L*a*b* РІ RGB ||
 # L*a*b* TO RGB CONVERSION
 col_conv <- function(Lab){
   cols <- Lab %>% 
@@ -51,7 +51,7 @@ col_conv <- function(Lab){
     rgb()
 }
 
-#функция создания изображения и сохранения его в файл ||
+#С„СѓРЅРєС†РёСЏ СЃРѕР·РґР°РЅРёСЏ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ Рё СЃРѕС…СЂР°РЅРµРЅРёСЏ РµРіРѕ РІ С„Р°Р№Р» ||
 # GENERATES AND SAVES JPEG IMAGE
 image_write <- function(depth, colors, filename){
   fname <- filename %>% 
@@ -82,12 +82,12 @@ image_write <- function(depth, colors, filename){
   dev.off()
   }
 
-# Выбор *.csv файлов || CHOOSE *.СSV FILES-----
+# Р’С‹Р±РѕСЂ *.csv С„Р°Р№Р»РѕРІ || CHOOSE *.РЎSV FILES-----
 if (interactive() && .Platform$OS.type == "windows")
   fn <- choose.files(caption = "choose MSCL log-file", 
                      multi = T)
 
-# Цикл для обработки данных из выбранных файлов || DATA PROCESSING -------
+# Р¦РёРєР» РґР»СЏ РѕР±СЂР°Р±РѕС‚РєРё РґР°РЅРЅС‹С… РёР· РІС‹Р±СЂР°РЅРЅС‹С… С„Р°Р№Р»РѕРІ || DATA PROCESSING -------
 
 for(f in fn){
   dLab <- read_log_files(f)
