@@ -1,3 +1,17 @@
+## ---------------------------
+##
+## Script name: PseudoColor.R
+##
+## Purpose of script: Generates raster file with pseudo colors of
+##                    bottom sediments along the core
+##
+## Author: PhD Dmitrii Borisov
+##
+## Date Created: 2022-04-19
+##
+## Email: borisov.ocean@gmail.com
+## 
+
 # Подключение библиотек || LIBRARIES-----------------------------
 library(stringi)
 library(magrittr)
