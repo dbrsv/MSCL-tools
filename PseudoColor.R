@@ -12,7 +12,7 @@
 ## Email: borisov.ocean@gmail.com
 ## 
 
-# Подключение библиотек || LIBRARIES-----------------------------
+# Подключение библиотек || LIBRARIES--------------------------
 library(stringi)
 library(magrittr)
 library(readr)
@@ -84,7 +84,7 @@ image_write <- function(depth, colors, filename){
   dev.off()
   }
 
-# Выбор *.csv файлов || CHOOSE *.СSV FILES-----
+# Выбор *.csv файлов || CHOOSE *.СSV FILES--------------------------------
 if (interactive() && .Platform$OS.type == "windows")
   fn <- choose.files(caption = "choose MSCL log-file", 
                      multi = T)
