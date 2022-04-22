@@ -28,12 +28,14 @@ read_log_files <- function(dat){
                   skip_empty_rows = T)
   
   d <- dat[,1][!is.na(dat$`L*`),] %>%
-        unique() %>%
-        t() %>%
-        as.vector()
+            unique() %>%
+            t() %>%
+            as.vector()
   
-  depth <- as.vector(t(dat[,1]))
-        
+  depth <- dat[,1] %>%
+            t() %>%
+            as.vector()
+
   L <- dat$`L*`[match(d, depth)]
   a <- dat$`a*`[match(d, depth)]
   b <- dat$`b*`[match(d, depth)]
